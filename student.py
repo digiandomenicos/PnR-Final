@@ -65,6 +65,7 @@ class Piggy(pigo.Pigo):
             self.bob_head()
             self.spin()
             self.shuffle_backwards()
+            self.skid()
 
     def shuffle_forward(self):
         for x in range (2):
@@ -83,6 +84,10 @@ class Piggy(pigo.Pigo):
             self.encB(5)
             self.encF(2)
             self.encB(5)
+    def skid(self):
+        for x in range (2):
+            self.encF(1)
+            self.encB(1)
     def obstacle_count(self):
         """scans and estimates the number of obstacles within sight"""
         self.wide_scan()
