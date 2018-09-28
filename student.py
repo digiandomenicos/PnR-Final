@@ -100,10 +100,10 @@ class Piggy(pigo.Pigo):
         self.encR(5)
         self.encF(10)
     def back_up(self):
-        self.encB(18)
-    for x in range (3):
-        self.encF(1)
-        self.encB(1)
+        for x in range (3):
+            self.encB(5)
+            self.encF(1)
+            self.encB(1)
     def obstacle_count(self):
         """scans and estimates the number of obstacles within sight"""
         self.wide_scan()
