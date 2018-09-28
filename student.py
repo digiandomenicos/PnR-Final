@@ -85,7 +85,7 @@ class Piggy(pigo.Pigo):
             self.encF(2)
             self.encB(5)
     def skid(self):
-        for x in range (2):
+        for x in range (3):
             self.encF(1)
             self.encB(1)
     def obstacle_count(self):
