@@ -74,7 +74,7 @@ class Piggy(pigo.Pigo):
             self.encR(2)
             self.encF(9)
     def bob_head(self):
-        for x in range(self.MIDPOINT- 20, self.MIDPOINT = 20, 5):
+        for x in range(self.MIDPOINT- 20, self.MIDPOINT - 20, 5):
             self.servo(x)
     def spin(self):
         self.encL(64)
