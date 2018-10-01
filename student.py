@@ -124,7 +124,7 @@ class Piggy(pigo.Pigo):
         self.encF(10)
     def shake_head(self):
         for x in range(3):
-            self.for x in range(self.MIDPOINT- 103, self.MIDPOINT - 60, 60):
+            for x in range(self.MIDPOINT- 60, self.MIDPOINT - 16, 10):
                 self.servo(x)
     def obstacle_count(self):
         """scans and estimates the number of obstacles within sight"""
