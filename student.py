@@ -60,17 +60,27 @@ class Piggy(pigo.Pigo):
         """executes a series of methods that add up to a compound dance"""
         print("\n---- LET'S DANCE ----\n")
         ##### WRITE YOUR FIRST PROJECT HERE
-        for x in range (3):
+        for x in range (1):
             self.shuffle_forward()
+#move left and right while going forward
             self.bob_head()
+#turn head side to side
             self.spin()
+#go in circles
             self.shuffle_backwards()
+#move left and write then go back
             self.skid()
+#move minimal amount back and forth
             self.stop()
+#dramatic pause
             self.look()
+#scan the room
             self.fake()
+#look like going left then go right
             self.back_up()
+#move backwords
             self.turn()
+#turn to the side
     def shuffle_forward(self):
         for x in range (2):
             self.encF(9)
