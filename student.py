@@ -81,6 +81,8 @@ class Piggy(pigo.Pigo):
 #move backwords
             self.turn()
 #turn to the side
+            self.shake_head()
+#shake head quickly
     def shuffle_forward(self):
         for x in range (2):
             self.encF(9)
@@ -120,6 +122,9 @@ class Piggy(pigo.Pigo):
         self.encF(10)
         self.encR(50)
         self.encF(10)
+    def shake_head(self):
+        for x in range(3):
+            self.for x in range(self.MIDPOINT- 103, self.MIDPOINT - 60, 60):
     def obstacle_count(self):
         """scans and estimates the number of obstacles within sight"""
         self.wide_scan()
