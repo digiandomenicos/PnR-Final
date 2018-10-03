@@ -69,7 +69,6 @@ class Piggy(pigo.Pigo):
             self.spin()
             self.shuffle_backwards()
             self.skid()
-            self.stop()
             self.look()
             self.fake()
             self.back_up()
@@ -78,6 +77,9 @@ class Piggy(pigo.Pigo):
             self.pivit()
             self.shimmy()
             self.run()
+            self.spin()
+            self.skid()
+            self.bob_head()
     def shuffle_forward(self):
         """move left right to right and go forward"""
         for x in range (2):
