@@ -156,7 +156,7 @@ class Piggy(pigo.Pigo):
         for x in range(4):
             if not self.is_clear():
                 return False
-            self.encR(29.5/4) #is this 90 deg?
+            self.encR(8) #is this 90 deg?
         #If we find no problems
         return True
     def obstacle_count(self):
