@@ -59,7 +59,8 @@ class Piggy(pigo.Pigo):
     def dance(self):
         """executes a series of methods that add up to a compound dance"""
         if not self.safe_to_dance():
-            print("\n----NOT SAFE TO DANCE----\n")
+            print("\n---- NOT SAFE TO DANCE ----\n")
+            return
         print("\n---- LET'S DANCE ----\n")
         ##### WRITE YOUR FIRST PROJECT HERE
         for x in range (1):
@@ -151,7 +152,7 @@ class Piggy(pigo.Pigo):
             self.encF(1)
         self.encF(36)
     def safe_to_dance(self):
-        """""""circles around the room"""
+        """circles around the room"""
         #check for problems
         for x in range(4):
             if not self.is_clear():
