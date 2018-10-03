@@ -58,6 +58,8 @@ class Piggy(pigo.Pigo):
     # YOU DECIDE: How does your GoPiggy dance?
     def dance(self):
         """executes a series of methods that add up to a compound dance"""
+        if not self.safe_to_dance():
+            print("\n----NOT SAVE TO DANCE----\n")
         print("\n---- LET'S DANCE ----\n")
         ##### WRITE YOUR FIRST PROJECT HERE
         for x in range (1):
@@ -148,6 +150,15 @@ class Piggy(pigo.Pigo):
             self.encR(3)
             self.encF(1)
         self.encF(36)
+    def safe_to_dance(self):
+        """""""circles around the room"""
+        #check for problems
+        for x in range(4):
+            if not self.is_clear():
+                return False
+            self.encR(29.5/4) #is this 90 deg?
+        #If we find no problems
+        return True
     def obstacle_count(self):
         """scans and estimates the number of obstacles within sight"""
         self.wide_scan()
