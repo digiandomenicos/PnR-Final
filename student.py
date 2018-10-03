@@ -65,86 +65,85 @@ class Piggy(pigo.Pigo):
         ##### WRITE YOUR FIRST PROJECT HERE
         for x in range (1):
             self.shuffle_forward()
-#move left and right while going forward
             self.bob_head()
-#turn head side to side
             self.spin()
-#go in circles
             self.shuffle_backwards()
-#move left and write then go back
             self.skid()
-#move minimal amount back and forth
             self.stop()
-#dramatic pause
             self.look()
-#scan the room
             self.fake()
-#look like going left then go right
             self.back_up()
-#move backwords
             self.turn()
-#turn to the side
             self.shake_head()
-#shake head quickly one one side
             self.pivit()
-#go in a half circle one point at a tie
             self.shimmy()
-#move left and right
             self.run()
-#start slow and then go
     def shuffle_forward(self):
+        """move left right to right and go forward"""
         for x in range (2):
             self.encF(9)
             self.encL(2)
             self.encR(2)
             self.encF(10)
     def bob_head(self):
+        """move head side to side"""
         for x in range(self.MIDPOINT- 20, self.MIDPOINT - 20, 5):
             self.servo(x)
     def spin(self):
+        """go in circles"""
         self.encL(30)
         self.encR(30)
     def shuffle_backwards(self):
+        """move left and write then go back"""
         for x in range (2):
             self.encB(5)
             self.encF(2)
             self.encB(5)
     def skid(self):
+        """move minimal amount back and forth"""
         for x in range (3):
             self.encF(1)
             self.encB(1)
     def look(self):
+        """dramatic pause"""
         for x in range(self.MIDPOINT- 103, self.MIDPOINT - 10, 7):
             self.servo(x)
     def fake(self):
+        """look like going left then go right"""
         self.encF(10)
         self.encL(1)
         self.encR(5)
         self.encF(10)
     def back_up(self):
+        """move backwards"""
         for x in range (3):
             self.encB(5)
             self.encF(1)
             self.encB(1)
     def turn(self):
+        """turn to the side"""
         self.encL(50)
         self.encF(10)
         self.encR(50)
         self.encF(10)
     def shake_head(self):
+        """shake head quickly one one side"""
         for x in range(3):
             for x in range(self.MIDPOINT- 60, self.MIDPOINT - 16, 10):
                 self.servo(x)
     def pivit(self):
+        """go in a half circle one point at a tie"""
         for x in range(14):
             self.encL(1)
     def shimmy(self):
+        """move left and right"""
         for x in range(3):
             self.encL(3)
             self.encF(1)
             self.encR(3)
             self.encF(1)
     def run (self):
+        """start slow and then go"""
         for x in range(2):
             self.encL(3)
             self.encF(1)
