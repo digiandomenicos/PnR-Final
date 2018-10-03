@@ -83,6 +83,7 @@ class Piggy(pigo.Pigo):
             self.shimmy()
             self.skid()
             self.circle_shake()
+            self.return_home()
     def shuffle_forward(self):
         """move left right to right and go forward"""
         for x in range (2):
@@ -165,6 +166,10 @@ class Piggy(pigo.Pigo):
         for x in range(4):
             self.encR(7)
             self.encB(4)
+    def return_home(self):
+        self.encR(10)
+        self.encB(20)
+        self.encL(10)
     def safe_to_dance(self):
         """circles around the room"""
         #check for problems
