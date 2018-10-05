@@ -117,7 +117,7 @@ class Piggy(pigo.Pigo):
     def fake(self):
         """look like going left then go right"""
         self.encF(10)
-        self.encL(1)
+        self.encL(1) #fake small move left
         self.encR(5)
         self.encF(10)
     def back_up(self):
@@ -138,9 +138,9 @@ class Piggy(pigo.Pigo):
             for x in range(self.MIDPOINT- 60, self.MIDPOINT - 16, 10):
                 self.servo(x)
     def pivit(self):
-        """go in a half circle one point at a tie"""
-        for x in range(14):
-            self.encL(1)
+        """go in a half circle one point at a time"""
+        for x in range(14): #is this half cirlce?
+            self.encL(1) #move slowly in a half cicle
     def shimmy(self):
         """move left and right"""
         for x in range(3):
@@ -162,14 +162,14 @@ class Piggy(pigo.Pigo):
             self.encL(2)
             self.encR(2)
     def circle_shake(self):
-        """move 90 deg then go back"""
+        """move 90 deg at a time then go back"""
         for x in range(4):
-            self.encR(7)
+            self.encR(7) #is this 90 deg?
             self.encB(4)
     def return_home(self):
-        self.encR(10)
-        self.encB(20)
-        self.encL(10)
+        self.encR(20)
+        self.encB(40)
+        self.encL(20)
     def safe_to_dance(self):
         """circles around the room"""
         #check for problems
