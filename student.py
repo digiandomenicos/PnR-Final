@@ -63,7 +63,7 @@ class Piggy(pigo.Pigo):
             return
         print("\n---- LET'S DANCE ----\n")
         ##### WRITE YOUR FIRST PROJECT HERE
-        for x in range (3):
+        for x in range (2):
             self.shuffle_forward()
             self.bob_head()
             self.spin()
