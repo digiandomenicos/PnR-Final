@@ -98,8 +98,8 @@ class Piggy(pigo.Pigo):
             self.servo(x)
     def spin(self):
         """go in circles"""
-        self.encL(30)
-        self.encR(30)
+        self.encL(20)
+        self.encR(20)
     def shuffle_backwards(self):
         """move left and write then go back"""
         for x in range (2):
@@ -129,9 +129,9 @@ class Piggy(pigo.Pigo):
             self.encB(1)
     def turn(self):
         """turn to the side"""
-        self.encL(50)
+        self.encL(20)
         self.encF(10)
-        self.encR(50)
+        self.encR(20)
         self.encF(10)
     def shake_head(self):
         """shake head quickly one one side"""
@@ -156,7 +156,7 @@ class Piggy(pigo.Pigo):
             self.encF(1) #minimal movement
             self.encR(1)
             self.encF(1)
-            self.encF(90) #forward a lot
+            self.encF(20) #forward a lot
     def shake(self):
         """move left and right """
         for x in range(5):
@@ -168,9 +168,9 @@ class Piggy(pigo.Pigo):
             self.encR(7) #is this 90 deg?
             self.encB(4)
     def return_home(self):
-        self.encR(60)
-        self.encB(90)
-        self.encL(90)
+        self.encR(10)
+        self.encB(20)
+        self.encL(10)
     def safe_to_dance(self):
         """circles around the room"""
         #check for problems
