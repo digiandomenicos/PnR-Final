@@ -68,6 +68,7 @@ class Piggy(pigo.Pigo):
             self.bob_head()
             self.spin()
             self.shuffle_backwards()
+            self.circle_shake()
             self.skid()
             self.look()
             self.fake()
@@ -111,7 +112,7 @@ class Piggy(pigo.Pigo):
             self.encF(1)
             self.encB(1)
     def look(self):
-        """dramatic pause"""
+        """look around"""
         for x in range(self.MIDPOINT- 103, self.MIDPOINT - 10, 7):
             self.servo(x)
     def fake(self):
@@ -151,11 +152,11 @@ class Piggy(pigo.Pigo):
     def run (self):
         """start slow and then go"""
         for x in range(2):
-            self.encL(3)
+            self.encL(1)
+            self.encF(1) #minimal movement
+            self.encR(1)
             self.encF(1)
-            self.encR(3)
-            self.encF(1)
-            self.encF(36)
+            self.encF(90) #forward a lot
     def shake(self):
         """move left and right """
         for x in range(5):
