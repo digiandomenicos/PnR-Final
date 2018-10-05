@@ -167,9 +167,9 @@ class Piggy(pigo.Pigo):
             self.encR(7) #is this 90 deg?
             self.encB(4)
     def return_home(self):
-        self.encR(20)
-        self.encB(40)
-        self.encL(20)
+        self.encR(60)
+        self.encB(90)
+        self.encL(90)
     def safe_to_dance(self):
         """circles around the room"""
         #check for problems
