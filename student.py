@@ -70,16 +70,18 @@ class Piggy(pigo.Pigo):
             self.shuffle_backwards()
             self.circle_shake()
             self.skid()
-            self.look()
+            self.shake_head()
             self.fake()
             self.back_up()
             self.turn()
             self.shake_head()
             self.pivit()
+            self.spin()
             self.shimmy()
             self.run()
             self.spin()
             self.skid()
+            self.bob_head()
             self.shake()
             self.shimmy()
             self.skid()
@@ -111,10 +113,7 @@ class Piggy(pigo.Pigo):
         for x in range (3):
             self.encF(1)
             self.encB(1)
-    def look(self):
-        """look around"""
-        for x in range(self.MIDPOINT- 103, self.MIDPOINT - 10, 7):
-            self.servo(x)
+
     def fake(self):
         """look like going left then go right"""
         self.encF(10)
@@ -130,9 +129,9 @@ class Piggy(pigo.Pigo):
     def turn(self):
         """turn to the side"""
         self.encL(20)
-        self.encF(10)
+        self.encF(10) #make a square
         self.encR(20)
-        self.encF(10)
+        self.encB(10)
     def shake_head(self):
         """shake head quickly one one side"""
         for x in range(3):
@@ -169,7 +168,7 @@ class Piggy(pigo.Pigo):
             self.encB(4)
     def return_home(self):
         self.encR(10)
-        self.encB(20)
+        self.encB(20) #back to original starting place
         self.encL(10)
     def safe_to_dance(self):
         """circles around the room"""
