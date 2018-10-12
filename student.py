@@ -184,6 +184,7 @@ class Piggy(pigo.Pigo):
             if not self.is_clear():
                 return False
             self.encR(8) #is this 90 deg?
+        return True
 
     def sprinkler(self):
         """moves your head like a sprinkler"""
