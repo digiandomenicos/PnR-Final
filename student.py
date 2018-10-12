@@ -75,10 +75,11 @@ class Piggy(pigo.Pigo):
             self.back_up()
             self.turn()
             self.shake_head()
-            self.pivit()
+            self.pivot()
             self.spin()
             self.shimmy()
             self.run()
+            self.dancing_forward()
             self.spin()
             self.skid()
             self.sprinkler()
@@ -87,7 +88,7 @@ class Piggy(pigo.Pigo):
             self.shimmy()
             self.skid()
             self.circle_shake()
-            self.return_home()
+            self.dancing_forward()
     def shuffle_forward(self):
         """move left right to right and go forward"""
         for x in range (2):
@@ -146,7 +147,7 @@ class Piggy(pigo.Pigo):
         for x in range(3):
             for x in range(self.MIDPOINT- 60, self.MIDPOINT - 16, 10):
                 self.servo(x)
-    def pivit(self):
+    def pivot(self):
         """go in a half circle one point at a time"""
         for x in range(14): #is this half cirlce?
             self.encL(1) #move slowly in a half cicle
@@ -175,10 +176,17 @@ class Piggy(pigo.Pigo):
         for x in range(4):
             self.encR(7) #is this 90 deg?
             self.encB(4)
-    def return_home(self):
-        self.encR(10)
-        self.encB(20) #back to original starting place
-        self.encL(10)
+    def dancing_forward(self): #Yuke's move
+       """head rotate with its body"""
+        for x in range(3):
+            self.servo(self.MIDPOINT - 30)
+            self.encR(2)
+            self.servo(self.MIDPOINT)
+            self.encF(5)
+            self.servo(self.MIDPOINT + 30)
+            self.encL(2)
+            self.servo(self.MIDPOINT)
+            self.encF(5)
     def safe_to_dance(self):
         """circles around the room"""
         #check for problems
