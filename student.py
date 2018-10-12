@@ -79,10 +79,10 @@ class Piggy(pigo.Pigo):
             self.spin()
             self.shimmy()
             self.run()
-            self.sprinklerbody()
+            self.sprinkler_body()
             self.spin()
             self.skid()
-            self.sprinklerbody()
+            self.sprinkler_body()
             self.bob_head()
             self.shake()
             self.shimmy()
@@ -122,7 +122,7 @@ class Piggy(pigo.Pigo):
         self.encL(1) #fake small move left
         self.encR(5)
         self.encF(10)
-    def sprinklerbody(self):
+    def sprinkler_body(self):
         """move left and right"""
         for x in range(5):
             self. encL(1)
