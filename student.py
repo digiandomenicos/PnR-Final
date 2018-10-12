@@ -176,17 +176,7 @@ class Piggy(pigo.Pigo):
         for x in range(4):
             self.encR(7) #is this 90 deg?
             self.encB(4)
-    def dancing_forward(self): #Yuke's move
-       """head rotate with its body"""
-        for x in range(3):
-            self.servo(self.MIDPOINT - 30)
-            self.encR(2)
-            self.servo(self.MIDPOINT)
-            self.encF(5)
-            self.servo(self.MIDPOINT + 30)
-            self.encL(2)
-            self.servo(self.MIDPOINT)
-            self.encF(5)
+
     def safe_to_dance(self):
         """circles around the room"""
         #check for problems
@@ -194,6 +184,14 @@ class Piggy(pigo.Pigo):
             if not self.is_clear():
                 return False
             self.encR(8) #is this 90 deg?
+
+        def sprinkler(self):
+            """moves your head like a sprinkler"""
+            # repeat the move 5 times
+            for x in range(5):
+                for angle in range(self.MIDPOINT - 20, self.MIDPOINT + 20, 5):
+                    self.servo(angle)
+
         #If we find no problems
         return True
     def obstacle_count(self):
