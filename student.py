@@ -79,10 +79,10 @@ class Piggy(pigo.Pigo):
             self.spin()
             self.shimmy()
             self.run()
-            self.sprinkler()
+            self.sprinklerbody()
             self.spin()
             self.skid()
-            self.sprinkler()
+            self.sprinklerbody()
             self.bob_head()
             self.shake()
             self.shimmy()
@@ -122,7 +122,7 @@ class Piggy(pigo.Pigo):
         self.encL(1) #fake small move left
         self.encR(5)
         self.encF(10)
-    def sprinkler(self):
+    def sprinklerbody(self):
         """move left and right"""
         for x in range(5):
             self. encL(1)
@@ -185,12 +185,12 @@ class Piggy(pigo.Pigo):
                 return False
             self.encR(8) #is this 90 deg?
 
-        def sprinkler(self):
-            """moves your head like a sprinkler"""
-            # repeat the move 5 times
-            for x in range(5):
-                for angle in range(self.MIDPOINT - 20, self.MIDPOINT + 20, 5):
-                    self.servo(angle)
+    def sprinkler(self):
+        """moves your head like a sprinkler"""
+        # repeat the move 5 times
+        for x in range(5):
+            for angle in range(self.MIDPOINT - 20, self.MIDPOINT + 20, 5):
+                self.servo(angle)
 
         #If we find no problems
         return True
