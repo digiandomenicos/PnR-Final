@@ -64,7 +64,7 @@ class Piggy(pigo.Pigo):
                 self.say_no()
     def say_no(self):
         for x in range(5):
-            for angle in range(self.MIDPOINT - 20, self.MIDPOINT + 20, 5):
+            for angle in range(self.MIDPOINT - 20, self.MIDPOINT + 20):
                 self.servo(angle)
             time.sleep(.1)
     # YOU DECIDE: How does your GoPiggy dance?
