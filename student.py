@@ -59,14 +59,14 @@ class Piggy(pigo.Pigo):
         """reacts to distant measurement in a cute way"""
         while True:
             if self.dist()< 20:
-                self.encB(7)
+                self.encB(18)
             self.unsure()
             time.sleep(.1)
 
     def unsure(self):
         self.set_speed(90,90)
-        self.encF(4)
-        self.encB(6)
+        self.encF(9)
+        self.encB(10)
         for x in range(2):
             for angle in range(self.MIDPOINT - 20, self.MIDPOINT + 20, 10):
                 self.servo(angle)
