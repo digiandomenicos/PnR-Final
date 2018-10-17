@@ -60,12 +60,15 @@ class Piggy(pigo.Pigo):
         while True:
             if self.dist()< 20:
                 self.encB(7)
-                self.unsure()
+            self.unsure()
             time.sleep(.1)
 
     def unsure(self):
         self.encF(4)
         self.encB(6)
+        for x in range(2):
+            for angle in range(self.MIDPOINT - 20, self.MIDPOINT + 20, 10):
+                self.servo(angle)
 
     # YOU DECIDE: How does your GoPiggy dance?
     def dance(self):
