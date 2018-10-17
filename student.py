@@ -63,6 +63,7 @@ class Piggy(pigo.Pigo):
                 self.encB(18)
                 self.set_speed(90,90)
                 self.unsure()
+                self.skid()
                 self.encF(23)
             time.sleep(.1)
 
