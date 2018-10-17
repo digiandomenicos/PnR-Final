@@ -62,11 +62,14 @@ class Piggy(pigo.Pigo):
             if self.dist()< 20:
                 self.encB(5)
                 self.say_no()
+            time.sleep(.1)
+
     def say_no(self):
         for x in range(5):
             for angle in range(self.MIDPOINT - 20, self.MIDPOINT + 20):
+                self.set_speed(90,90)
                 self.servo(angle)
-            time.sleep(.1)
+
     # YOU DECIDE: How does your GoPiggy dance?
     def dance(self):
         """executes a series of methods that add up to a compound dance"""
