@@ -61,14 +61,14 @@ class Piggy(pigo.Pigo):
             if self.dist()< 20:
                 self.encB(18)
                 self.unsure()
-                self.encF(19)
+                self.encF(23)
             time.sleep(.1)
 
 
     def unsure(self):
         self.set_speed(90,90)
-        self.encF(9)
-        self.encB(10)
+        self.encF(14)
+        self.encB(20)
         for x in range(2):
             for angle in range(self.MIDPOINT - 20, self.MIDPOINT + 20, 10):
                 self.servo(angle)
