@@ -62,6 +62,7 @@ class Piggy(pigo.Pigo):
                 self.encB(18)
             self.unsure()
             time.sleep(.1)
+            self.encF(19)
 
     def unsure(self):
         self.set_speed(90,90)
