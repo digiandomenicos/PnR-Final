@@ -60,7 +60,9 @@ class Piggy(pigo.Pigo):
         """reacts to distant measurement in a cute way"""
         while True:
             if self.dist()< 20:
-                self.encR(5)
+                self.encB(5)
+                self.set_speed(90,90)
+                self.spin()
             time.sleep(.1)
     # YOU DECIDE: How does your GoPiggy dance?
     def dance(self):
