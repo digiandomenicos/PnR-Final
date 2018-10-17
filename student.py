@@ -64,6 +64,7 @@ class Piggy(pigo.Pigo):
             time.sleep(.1)
 
     def unsure(self):
+        self.set_speed(90,90)
         self.encF(4)
         self.encB(6)
         for x in range(2):
