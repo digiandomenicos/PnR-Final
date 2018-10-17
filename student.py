@@ -64,7 +64,7 @@ class Piggy(pigo.Pigo):
                 self.encB(5)
                 self.set_speed(60,60)
                 self.shimmy()
-            time.sleep(.1)
+                time.sleep(.1)
     # YOU DECIDE: How does your GoPiggy dance?
     def dance(self):
         """executes a series of methods that add up to a compound dance"""
