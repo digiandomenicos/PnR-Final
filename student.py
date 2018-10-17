@@ -59,7 +59,9 @@ class Piggy(pigo.Pigo):
         """reacts to distant measurement in a cute way"""
         while True:
             if self.dist()< 20:
+                self.set_speed(60,60)
                 self.encB(18)
+                self.set_speed(90,90)
                 self.unsure()
                 self.encF(23)
             time.sleep(.1)
