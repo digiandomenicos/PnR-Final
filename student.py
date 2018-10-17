@@ -45,6 +45,7 @@ class Piggy(pigo.Pigo):
                 "o": ("Obstacle count", self.obstacle_count),
                 "c": ("Calibrate", self.calibrate),
                 "s": ("Check status", self.status),
+                "h": ("Open House", self.open_house),
                 "q": ("Quit", quit_now)
                 }
         # loop and print the menu...
@@ -55,6 +56,12 @@ class Piggy(pigo.Pigo):
         # activate the item selected
         menu.get(ans, [None, error])[1]()
 
+    def open_house(self):
+        """reacts to distant measurement in a cute way"""
+        while True:
+            if self.dist()< 20:
+                self.encR(5)
+            time.sleep(.1)
     # YOU DECIDE: How does your GoPiggy dance?
     def dance(self):
         """executes a series of methods that add up to a compound dance"""
