@@ -64,12 +64,12 @@ class Piggy(pigo.Pigo):
                 self.set_speed(90,90)
                 self.unsure()
                 self.skid_back()
-                self.encF(26)
+                self.encF(28)
             time.sleep(.1)
 
     def skid_back(self):
         for x in range(3):
-            self.encB(1)
+            self.encB(2)
     def unsure(self):
         self.set_speed(90,90)
         self.encF(14)
