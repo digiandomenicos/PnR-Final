@@ -223,12 +223,13 @@ class Piggy(pigo.Pigo):
         self.wide_scan()
         found_something = False
         counter = 0
+        term_dist = 150
         for ang, distance in enumerate(self.scan):
-            if distance and distance < 150 and not found_something:
+            if distance and distance < term_dist and not found_something:
                 found_something = True
                 counter += 1
                 print("Object # %d found, I think" % counter)
-            if distance and distance > 150 and found_something:
+            if distance and distance > term_dist and found_something:
                 found_something = False
         print("\n----I SEE %d OBJECTS----\n" % counter)
 
