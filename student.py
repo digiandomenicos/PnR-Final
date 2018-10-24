@@ -251,7 +251,7 @@ class Piggy(pigo.Pigo):
                     # add up the numbers to right_total
                     right_total += self.scan[angle]
             # loop from self.MIDPOINT to self.MIDPOINT + 60
-            for x in range(self.MIDPOINT, self.midpoint + 60):
+            for x in range(self.MIDPOINT, self.MIDPOINT + 60):
                 # add up the numbers to left_total
                 left_total += self.scan[x]
             # if right is bigger:
@@ -262,10 +262,9 @@ class Piggy(pigo.Pigo):
             if right_total < left_total:
                 # turn left
                 self.encL(3)
-            pass
-        else:
+            else:
             #turn until it's clear
-            pass
+                pass
 
     def safety_check(self):
         """subroutine of the dance method"""
