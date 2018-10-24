@@ -46,7 +46,8 @@ class Piggy(pigo.Pigo):
                 "c": ("Calibrate", self.calibrate),
                 "s": ("Check status", self.status),
                 "h": ("Open House", self.open_house),
-                "q": ("Quit", quit_now)}
+                "q": ("Quit", quit_now)},
+                "t": ("Test", self.skill_test)
         # loop and print the menu...
         for key in sorted(menu.keys()):
             print(key + ":" + menu[key][0])
@@ -232,6 +233,38 @@ class Piggy(pigo.Pigo):
             if distance and distance > term_dist and found_something:
                 found_something = False
         print("\n----I SEE %d OBJECTS----\n" % counter)
+
+    def skill_test(self):
+        """demonstrates nav skills"""
+        choice = raw_input("left/right or Turn Until Clear")
+
+        if "l" in choice:
+            self.wide_scan(count=4) #scan the area
+            #pick left or right
+
+            # create two variables, left_total and right_total
+            left_total = 0
+            right_total = 0
+            # loop from self.MIDPOINT - 60 to self.MIDPOINT
+            for angle in range(self.MIDPOINT-60,self.MIDPOINT):
+                # add up the numbers to right_total
+                right_total += self.scan[angle]
+            # loop from self.MIDPOINT to self.MIDPOINT + 60
+            for x in range(self.MIDPOINT, self.midpoint + 60):
+                # add up the numbers to left_total
+                left_total += self.scan[x]
+            # if right is bigger:
+            if right_total > left_total:
+                # turn right
+                self.encR(3)
+            # if left is bigger:
+            if right_total < left_total:
+                # turn left
+                self.encL(3)
+            pass
+        else:
+            #turn until it's clear
+            pass
 
     def safety_check(self):
         """subroutine of the dance method"""
