@@ -263,7 +263,7 @@ class Piggy(pigo.Pigo):
                 # turn left
                 self.encL(3)
             else:
-            #turn until it's clear
+            #turn until it is clear
                 pass
 
     def safety_check(self):
