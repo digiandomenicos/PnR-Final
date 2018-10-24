@@ -46,8 +46,8 @@ class Piggy(pigo.Pigo):
                 "c": ("Calibrate", self.calibrate),
                 "s": ("Check status", self.status),
                 "h": ("Open House", self.open_house),
-                "q": ("Quit", quit_now)},
-                "t": ("Test", self.skill_test)
+                "q": ("Quit", quit_now),
+                "t": ("Test", self.skill_test)}
         # loop and print the menu...
         for key in sorted(menu.keys()):
             print(key + ":" + menu[key][0])
@@ -247,8 +247,9 @@ class Piggy(pigo.Pigo):
             right_total = 0
             # loop from self.MIDPOINT - 60 to self.MIDPOINT
             for angle in range(self.MIDPOINT-60,self.MIDPOINT):
-                # add up the numbers to right_total
-                right_total += self.scan[angle]
+                if self.scan[angle]:
+                    # add up the numbers to right_total
+                    right_total += self.scan[angle]
             # loop from self.MIDPOINT to self.MIDPOINT + 60
             for x in range(self.MIDPOINT, self.midpoint + 60):
                 # add up the numbers to left_total
