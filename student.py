@@ -51,7 +51,7 @@ class Piggy(pigo.Pigo):
         # loop and print the menu...
         for key in sorted(menu.keys()):
             print(key + ":" + menu[key][0])
-        # store the user's answer
+        # store the user's answers
         ans = raw_input("Your selection: ")
         # activate the item selected
         menu.get(ans, [None, error])[1]()
