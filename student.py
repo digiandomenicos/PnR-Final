@@ -264,8 +264,8 @@ class Piggy(pigo.Pigo):
                 # turn left
                 self.encL(3)
             else:
-                self.wide_scan()
-                self.is_clear()
+                while not self.is_clear():
+                    self.encF(18)
 
 
     def safety_check(self):
