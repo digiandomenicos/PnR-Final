@@ -265,7 +265,7 @@ class Piggy(pigo.Pigo):
                 self.encL(3)
         else:
             while not self.is_clear():
-                self.encR(3)
+                self.encR(1)
 
 
     def safety_check(self):
