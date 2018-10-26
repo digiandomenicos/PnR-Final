@@ -264,8 +264,9 @@ class Piggy(pigo.Pigo):
                 # turn left
                 self.encL(3)
             else:
-            #turn until it is clear
-                pass
+                self.wide_scan()
+                self.is_clear()
+
 
     def safety_check(self):
         """subroutine of the dance method"""
