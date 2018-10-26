@@ -263,9 +263,9 @@ class Piggy(pigo.Pigo):
             if right_total < left_total:
                 # turn left
                 self.encL(3)
-            else:
-                while not self.is_clear():
-                    self.encF(18)
+        else:
+            while not self.is_clear():
+                self.encR(3)
 
 
     def safety_check(self):
