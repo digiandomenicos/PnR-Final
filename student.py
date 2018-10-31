@@ -296,7 +296,8 @@ class Piggy(pigo.Pigo):
             #if the amount of space from the left is greater than the right go to the right
             elif left_total > right_total:
                 self.encR(10)
-                self.encF(3) #the robot did not do anything with just encR
+                self.encF(3) #the robot did not do anything nwith just encR
+            return True #the robot just stopped so it has to return true
 
     def cruise(self):
         """ drive straight while path is clear """
