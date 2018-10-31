@@ -290,12 +290,13 @@ class Piggy(pigo.Pigo):
             if self.is_clear():
                 self.cruise()
             #if the amount of space from the right is greater than the left go to the left
-            if False right_not_clear:
-                pass
-
+            left_total = 0
+            right_total = 0
+            if False right_total > left_total:
+                self.encL(18)
             #if the amount of space from the left is greater than the right go to the right
-            if False self.left_not_clear:
-                pass
+            if False left_total > right_total:
+                self.encR(18)
 
     def right_not_clear(self):
         left_total = 0
@@ -305,9 +306,7 @@ class Piggy(pigo.Pigo):
             if self.scan[angle]:
                 # add up the numbers to right_total
                 right_total += self.scan[angle]
-            if left_total < right_total:
-                self.encL(10)
-                self.encF(3)
+
 
     def left_not_clear(self):
         left_total=0
