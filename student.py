@@ -292,10 +292,10 @@ class Piggy(pigo.Pigo):
             #if the amount of space from the right is greater than the left go to the left
             left_total = 0
             right_total = 0
-            if False right_total > left_total:
+            if right_total > left_total:
                 self.encL(18)
             #if the amount of space from the left is greater than the right go to the right
-            if False left_total > right_total:
+            if left_total > right_total:
                 self.encR(18)
 
     def right_not_clear(self):
