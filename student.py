@@ -290,15 +290,33 @@ class Piggy(pigo.Pigo):
             if self.is_clear():
                 self.cruise()
             #if the amount of space from the right is greater than the left go to the left
-            elif right_total > left_total:
-                self.encL(10)
-                self.encF(3)
+            elif right_not_clear:
             #if the amount of space from the left is greater than the right go to the right
-            elif left_total > right_total:
-                self.encR(10)
-                self.encF(3) #the robot did not do anything nwith just encR
+            elif left_not_clear:
             return True #the robot just stopped so it has to return true
 
+    def right_not_clear(self):
+        left_total = 0
+        right_total = 0
+        # loop from self.MIDPOINT - 60 to self.MIDPOINT
+        for angle in range(self.MIDPOINT - 60, self.MIDPOINT):
+            if self.scan[angle]:
+                # add up the numbers to right_total
+                right_total += self.scan[angle]
+            if left_total < right_total:
+                self.encL(10)
+                self.encF(3)
+
+    def left_not_clear(self):
+        left_total=0
+        right_total= 0
+        for angle in range(self.MIDPOINT, self.MIDPOINT + 60):
+            if self.scan[angle]:
+                # add up the numbers to left_total
+                left_total += self.scan[angle]
+            if right_total < left_total:
+                self.encR(10)
+                self.encF(3)
     def cruise(self):
         """ drive straight while path is clear """
         self.fwd()
