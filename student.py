@@ -292,11 +292,10 @@ class Piggy(pigo.Pigo):
             #if the amount of space from the right is greater than the left go to the left
             if not self.right_not_clear: #running within while true
                 pass
-            return True
             #if the amount of space from the left is greater than the right go to the right
-            elif not self.left_not_clear:
+            if not self.left_not_clear:
                 pass
-            return True #the robot just stopped so it has to return true
+             #the robot just stopped so it has to return true but not on this line
 
     def right_not_clear(self):
         left_total = 0
