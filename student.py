@@ -289,7 +289,11 @@ class Piggy(pigo.Pigo):
         while True:
             if self.is_clear():
                 self.cruise()
-            else:
+            #if the amount of space from the right is greater than the left go to the left
+            elif right_total > left_total:
+                self.encL(10)
+            #if the amount of space from the left is greater than the right go to the right
+            elif left_total > right_total:
                 self.encR(10)
 
     def cruise(self):
