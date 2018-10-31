@@ -290,10 +290,10 @@ class Piggy(pigo.Pigo):
             if self.is_clear():
                 self.cruise()
             #if the amount of space from the right is greater than the left go to the left
-            elif self.right_not_clear:
+            if not self.right_not_clear: #running within while true
                 pass
             #if the amount of space from the left is greater than the right go to the right
-            elif self.left_not_clear:
+            if not self.left_not_clear:
                 pass
                 return True #the robot just stopped so it has to return true
 
