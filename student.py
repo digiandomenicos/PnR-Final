@@ -293,7 +293,7 @@ class Piggy(pigo.Pigo):
             elif right_not_clear:
             #if the amount of space from the left is greater than the right go to the right
             elif left_not_clear:
-            return True #the robot just stopped so it has to return true
+                return True #the robot just stopped so it has to return true
 
     def right_not_clear(self):
         left_total = 0
