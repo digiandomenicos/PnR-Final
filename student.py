@@ -306,7 +306,7 @@ class Piggy(pigo.Pigo):
                 # add up the numbers to right_total
                 right_total += self.scan[angle]
             if left_total < right_total:
-                self.encL(10)
+                self.encL(18)
                 self.encF(3)
 
     def left_not_clear(self):
@@ -317,7 +317,7 @@ class Piggy(pigo.Pigo):
                 # add up the numbers to left_total
                 left_total += self.scan[angle]
             if right_total < left_total:
-                self.encR(10)
+                self.encR(18)
                 self.encF(3)
     def cruise(self):
         """ drive straight while path is clear """
