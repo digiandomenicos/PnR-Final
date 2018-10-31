@@ -292,6 +292,7 @@ class Piggy(pigo.Pigo):
             #if the amount of space from the right is greater than the left go to the left
             if not self.right_not_clear: #running within while true
                 pass
+                return True
             #if the amount of space from the left is greater than the right go to the right
             if not self.left_not_clear:
                 pass
