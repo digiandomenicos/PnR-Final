@@ -290,40 +290,28 @@ class Piggy(pigo.Pigo):
             if self.is_clear():
                 self.cruise()
             #if the amount of space from the right is greater than the left go to the left
+            self.wide_scan()
             left_total = 0
+            for ang in range(self.MIDPOINT, self.MIDPOINT+60):
+                if self.scan[ang]:
+                    left_total += self.scan[ang]
             right_total = 0
+            for ang in range(self.MIDPOINT-60, self.MIDPOINT):
+                if self.scan[ang]:
+                    right_total += self.scan[ang]
             if right_total > left_total:
                 self.encL(18)
             #if the amount of space from the left is greater than the right go to the right
             if left_total > right_total:
                 self.encR(18)
 
-    def right_not_clear(self):
-        left_total = 0
-        right_total = 0
-        # loop from self.MIDPOINT - 60 to self.MIDPOINT
-        for angle in range(self.MIDPOINT - 60, self.MIDPOINT):
-            if self.scan[angle]:
-                # add up the numbers to right_total
-                right_total += self.scan[angle]
-
-
-    def left_not_clear(self):
-        left_total=0
-        right_total= 0
-        for angle in range(self.MIDPOINT, self.MIDPOINT + 60):
-            if self.scan[angle]:
-                # add up the numbers to left_total
-                left_total += self.scan[angle]
-            if right_total < left_total:
-                self.encR(10)
-                self.encF(3)
     def cruise(self):
         """ drive straight while path is clear """
         self.fwd()
         while self.dist() > self.SAFE_STOP_DIST:
             time.sleep(.5)
-        self.stop()
+        while self.dist:
+            self.stop()
 ####################################################
 ############### STATIC FUNCTIONS
 
