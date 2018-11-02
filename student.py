@@ -290,7 +290,7 @@ class Piggy(pigo.Pigo):
             if self.is_clear():
                 self.cruise()
             #if the amount of space from the right is greater than the left go to the left
-            self.widescan()
+            self.wide_scan()
             left_total = 0
             for ang in range(self.MIDPOINT, self.MIDPOINT+60, 5):
                 if self.scan[ang]:
@@ -313,23 +313,6 @@ class Piggy(pigo.Pigo):
         while self.dist:
             self.stop()
 
-    def widescan(self):
-        for x in range(self.MIDPOINT - 60, self.MIDPOINT + 60, +5):
-            servo(x)
-            time.sleep(.1)
-            scan1 = us_dist(15)
-            time.sleep(.1)
-            # double check the distance
-            scan2 = us_dist(15)
-            # if I found a different distance the second time....
-            if abs(scan1 - scan2) > 2:
-                scan3 = us_dist(15)
-                time.sleep(.1)
-                # take another scan and average the three together
-                scan1 = (scan1 + scan2 + scan3) / 3
-            self.scan[x] = scan1
-            print("Degree: " + str(x) + ", distance: " + str(scan1))
-            time.sleep(.01)
 
 ####################################################
 ############### STATIC FUNCTIONS
