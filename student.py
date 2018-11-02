@@ -291,10 +291,12 @@ class Piggy(pigo.Pigo):
                 self.cruise()
             else:
                 self.check()
+                self.servo(self.MIDPOINT)
+            return True
 
     def check(self):
 #if the amount of space from the right is greater than the left go to the left
-        self.wide_scan(count =5)
+        self.wide_scan(count=4)
         left_total = 0
         for ang in range(self.MIDPOINT, self.MIDPOINT+60, 5):
             if self.scan[ang]:
