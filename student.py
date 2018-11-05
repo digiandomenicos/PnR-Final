@@ -290,10 +290,7 @@ class Piggy(pigo.Pigo):
             if self.is_clear():
                 self.cruise()
             elif not self.is_clear():
-                self.servo(self.MIDPOINT)
-                self.encB(4)
-                return True
-            else:
+                self.encB(2)
                 self.check()
             return True
 
