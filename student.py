@@ -295,8 +295,8 @@ class Piggy(pigo.Pigo):
 
     def check(self):
         self.wide_scan(count=4)  # scan the area
-    left_total = 0
-    right_total = 0
+        left_total = 0
+        right_total = 0
         for angle in range(self.MIDPOINT - 60, self.MIDPOINT):
             if self.scan[angle]:
                 right_total += self.scan[angle]
