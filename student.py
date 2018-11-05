@@ -291,6 +291,7 @@ class Piggy(pigo.Pigo):
                 self.cruise()
             elif not self.is_clear():
                 self.encB(2)
+                self.is_clear()
             return True
 
     def check(self):
@@ -313,9 +314,9 @@ class Piggy(pigo.Pigo):
         """ drive straight while path is clear """
         self.fwd()
         while self.dist() > self.SAFE_STOP_DIST:
-            time.sleep(.1)
-        while self.dist:
-            self.stop()
+            time.sleep(.01)
+        self.stop()
+        self.encB(3)
 
 
 
