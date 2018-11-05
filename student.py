@@ -320,7 +320,7 @@ class Piggy(pigo.Pigo):
             time.sleep(.5)
         while self.dist:
             self.stop()
-            break
+
 
 
 ####################################################
