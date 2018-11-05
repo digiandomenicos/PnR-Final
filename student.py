@@ -307,9 +307,6 @@ class Piggy(pigo.Pigo):
             self.encR(6)
         if right_total < left_total:
             self.encL(6)
-    else:
-        while not self.is_clear():
-            self.encR(3)
 
 
     def cruise(self):
