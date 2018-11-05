@@ -295,7 +295,6 @@ class Piggy(pigo.Pigo):
                 return True
             else:
                 self.skill_test()
-                break
             return True
 
     def check(self):
@@ -321,6 +320,7 @@ class Piggy(pigo.Pigo):
             time.sleep(.5)
         while self.dist:
             self.stop()
+            break
 
 
 ####################################################
