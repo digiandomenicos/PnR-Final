@@ -294,7 +294,7 @@ class Piggy(pigo.Pigo):
                 self.encB(4)
                 return True
             else:
-                self.skill_test()
+                self.check()
             return True
 
     def check(self):
