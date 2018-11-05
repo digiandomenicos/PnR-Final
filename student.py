@@ -289,6 +289,10 @@ class Piggy(pigo.Pigo):
         while True:
             if self.is_clear():
                 self.cruise()
+            elif not self.is_clear():
+                self.servo(self.MIDPOINT)
+                self.encB(4)
+                return True
             else:
                 self.skill_test()
                 break
