@@ -286,7 +286,7 @@ class Piggy(pigo.Pigo):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         print("-------- [ Press CTRL + C to stop me ] --------\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
-        while True:
+        for x in range(4):
             if self.is_clear():
                 self.cruise()
             else:
@@ -294,24 +294,21 @@ class Piggy(pigo.Pigo):
             return True
 
     def check(self):
-#if the amount of space from the right is greater than the left go to the left
-        self.wide_scan(count=4)
-        left_total = 0
-        for ang in range(self.MIDPOINT, self.MIDPOINT+60, 5):
-            if self.scan[ang]:
-                left_total += self.scan[ang]
-        right_total = 0
-        for ang in range(self.MIDPOINT-60, self.MIDPOINT, 5):
-            if self.scan[ang]:
-                right_total += self.scan[ang]
+        self.wide_scan(count=4)  # scan the area
+    left_total = 0
+    right_total = 0
+        for angle in range(self.MIDPOINT - 60, self.MIDPOINT):
+            if self.scan[angle]:
+                right_total += self.scan[angle]
+        for angle in range(self.MIDPOINT, self.MIDPOINT + 60):
+            if self.scan[angle]:
         if right_total > left_total:
-            self.encL(18)
-#if the amount of space from the left is greater than the right go to the right
-        if left_total > right_total:
-            self.encR(18)
-        if self.dist() > self.SAFE_STOP_DIST:
-#trying to not do the full wide_scan before going
-            self.cruise()
+            self.encR(6)
+        if right_total < left_total:
+            self.encL(6)
+    else:
+        while not self.is_clear():
+            self.encR(3)
 
 
     def cruise(self):
