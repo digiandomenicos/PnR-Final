@@ -2,8 +2,9 @@ import pigo
 import time  # import just in case students need
 import random
 
-# setup logs
+# esetup logs
 import logging
+
 LOG_LEVEL = logging.INFO
 LOG_FILE = "/home/pi/PnR-Final/log_robot.log"  # don't forget to make this file!
 LOG_FORMAT = "%(asctime)s %(levelname)s %(message)s"
@@ -59,10 +60,10 @@ class Piggy(pigo.Pigo):
     def open_house(self):
         """reacts to distant measurement in a cute way"""
         while True:
-            if self.dist()< 20:
-                self.set_speed(60,60)
+            if self.dist() < 20:
+                self.set_speed(60, 60)
                 self.encB(18)
-                self.set_speed(90,90)
+                self.set_speed(90, 90)
                 self.unsure()
                 self.skid_back()
                 self.encF(28)
@@ -71,8 +72,9 @@ class Piggy(pigo.Pigo):
     def skid_back(self):
         for x in range(3):
             self.encB(2)
+
     def unsure(self):
-        self.set_speed(90,90)
+        self.set_speed(90, 90)
         self.encF(14)
         self.encB(20)
         for x in range(2):
@@ -87,7 +89,7 @@ class Piggy(pigo.Pigo):
             return
         print("\n---- LET'S DANCE ----\n")
         ##### WRITE YOUR FIRST PROJECT HERE
-        for x in range (2):
+        for x in range(2):
             self.shuffle_forward()
             self.bob_head()
             self.spin()
@@ -113,68 +115,79 @@ class Piggy(pigo.Pigo):
             self.skid()
             self.circle_shake()
             self.sprinkler()
+
     def shuffle_forward(self):
         """move left right to right and go forward"""
-        for x in range (2):
+        for x in range(2):
             self.encF(9)
             self.encL(2)
             self.encR(2)
             self.encF(10)
+
     def bob_head(self):
         """move head side to side"""
-        for x in range(self.MIDPOINT- 20, self.MIDPOINT - 20, 5):
+        for x in range(self.MIDPOINT - 20, self.MIDPOINT - 20, 5):
             self.servo(x)
+
     def spin(self):
         """go in circles"""
         self.encL(20)
         self.encR(20)
+
     def shuffle_backwards(self):
         """move left and write then go back"""
-        for x in range (2):
+        for x in range(2):
             self.encB(5)
             self.encF(2)
             self.encB(5)
+
     def skid(self):
         """move minimal amount back and forth"""
-        for x in range (3):
+        for x in range(3):
             self.encF(1)
             self.encB(1)
 
     def fake(self):
         """look like going left then go right"""
         self.encF(10)
-        self.encL(1) #fake small move left
+        self.encL(1)  # fake small move left
         self.encR(5)
         self.encF(10)
+
     def sprinkler_body(self):
         """move left and right"""
         for x in range(5):
-            self. encL(1)
-        self.encR(5) #move pack
-        for x in range (5):
             self.encL(1)
-        self.encL(5) #move back
+        self.encR(5)  # move pack
+        for x in range(5):
+            self.encL(1)
+        self.encL(5)  # move back
+
     def back_up(self):
         """move backwards"""
-        for x in range (3):
+        for x in range(3):
             self.encB(5)
             self.encF(1)
             self.encB(1)
+
     def turn(self):
         """turn to the side"""
         self.encL(20)
-        self.encF(10) #make a square
+        self.encF(10)  # make a square
         self.encR(20)
         self.encB(10)
+
     def shake_head(self):
         """shake head quickly one one side"""
         for x in range(3):
-            for x in range(self.MIDPOINT- 60, self.MIDPOINT - 16, 10):
+            for x in range(self.MIDPOINT - 60, self.MIDPOINT - 16, 10):
                 self.servo(x)
+
     def pivot(self):
         """go in a half circle one point at a time"""
-        for x in range(14): #is this half cirlce?
-            self.encL(1) #move slowly in a half cicle
+        for x in range(14):  # is this half cirlce?
+            self.encL(1)  # move slowly in a half cicle
+
     def shimmy(self):
         """move left and right"""
         for x in range(3):
@@ -182,32 +195,35 @@ class Piggy(pigo.Pigo):
             self.encF(1)
             self.encR(3)
             self.encF(1)
-    def run (self):
+
+    def run(self):
         """start slow and then go"""
         for x in range(2):
             self.encL(1)
-            self.encF(1) #minimal movement
+            self.encF(1)  # minimal movement
             self.encR(1)
             self.encF(1)
-            self.encF(20) #forward a lot
+            self.encF(20)  # forward a lot
+
     def shake(self):
         """move left and right """
         for x in range(5):
             self.encL(2)
             self.encR(2)
+
     def circle_shake(self):
         """move 90 deg at a time then go back"""
         for x in range(4):
-            self.encR(7) #is this 90 deg?
+            self.encR(7)  # is this 90 deg?
             self.encB(4)
 
     def safe_to_dance(self):
         """circles around the room"""
-        #check for problems
+        # check for problems
         for x in range(4):
             if not self.is_clear():
                 return False
-            self.encR(8) #is this 90 deg?
+            self.encR(8)  # is this 90 deg?
         return True
 
     def sprinkler(self):
@@ -217,8 +233,9 @@ class Piggy(pigo.Pigo):
             for angle in range(self.MIDPOINT - 20, self.MIDPOINT + 20, 5):
                 self.servo(angle)
 
-        #If we find no problems
+        # If we find no problems
         return True
+
     def obstacle_count(self):
         """scans and estimates the number of obstacles within sight"""
         self.wide_scan()
@@ -239,21 +256,21 @@ class Piggy(pigo.Pigo):
         choice = raw_input("left/right or Turn Until Clear")
 
         if "l" in choice:
-            self.wide_scan(count=4) #scan the area
-            #pick left or right
+            self.wide_scan(count=4)  # scan the area
+            # pick left or right
 
             # create two variables, left_total and right_total
             left_total = 0
             right_total = 0
             # loop from self.MIDPOINT - 60 to self.MIDPOINT
-            for angle in range(self.MIDPOINT-60,self.MIDPOINT):
+            for angle in range(self.MIDPOINT - 60, self.MIDPOINT):
                 if self.scan[angle]:
                     # add up the numbers to right_total
                     right_total += self.scan[angle]
             # loop from self.MIDPOINT to self.MIDPOINT + 60
             for angle in range(self.MIDPOINT, self.MIDPOINT + 60):
                 if self.scan[angle]:
-                # add up the numbers to left_total
+                    # add up the numbers to left_total
                     left_total += self.scan[angle]
             # if right is bigger:
             if right_total > left_total:
@@ -266,7 +283,6 @@ class Piggy(pigo.Pigo):
         else:
             while not self.is_clear():
                 self.encR(1)
-
 
     def safety_check(self):
         """subroutine of the dance method"""
@@ -290,11 +306,12 @@ class Piggy(pigo.Pigo):
             if self.is_clear():
                 self.cruise()
             elif not self.is_clear():
-                self.is_clear()
+                self.encB(2)
+                self.servo(self.MIDPOINT)
             return True
 
     def check(self):
-        self.wide_scan(count=4)  # scan the area
+        self.wide_scan(count=4)  # scan the area #i would really like the robot to move faster
         left_total = 0
         right_total = 0
         for angle in range(self.MIDPOINT - 60, self.MIDPOINT):
@@ -308,14 +325,12 @@ class Piggy(pigo.Pigo):
         if right_total < left_total:
             self.encL(6)
 
-
     def cruise(self):
         """ drive straight while path is clear """
         self.fwd()
         while self.dist() > self.SAFE_STOP_DIST:
             time.sleep(.1)
         self.stop()
-        self.encB(3)
 
 
 
@@ -331,6 +346,7 @@ def error():
 def quit_now():
     """shuts down app"""
     raise SystemExit
+
 
 ##################################################################
 ######## The app starts right here when we instantiate our GoPiggy
