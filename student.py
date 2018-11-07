@@ -306,9 +306,15 @@ class Piggy(pigo.Pigo):
             if self.is_clear():
                 self.cruise()
             if not self.is_clear:
-                self.encL(8)
+                self.encL(9)
                 if self.is_clear:
                     self.cruise()
+            else:
+                self.encB(3)
+                self.encR(9)
+                if self.is_clear():
+                    self.cruise()
+
 
     def check(self):
         self.wide_scan(count=4)  # scan the area #i would really like the robot to move faster
@@ -333,11 +339,11 @@ class Piggy(pigo.Pigo):
             if self.dist() < self.SAFE_STOP_DIST:
                 break
 
-            self.servo(self.MIDPOINT +10)
+            self.servo(self.MIDPOINT +5) # if five degrees from the midpoint is
             if self.dist() > self.SAFE_STOP_DIST:
                 break
 
-            self.servo(self.MIDPOINT -10)
+            self.servo(self.MIDPOINT -5)
             if self.dist() > self.SAFE_STOP_DIST:
                 break
 
