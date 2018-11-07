@@ -331,8 +331,7 @@ class Piggy(pigo.Pigo):
         while self.dist() > self.SAFE_STOP_DIST:
             time.sleep(.1)
         self.stop()
-        self.encB(2)
-        self.servo(self.MIDPOINT)
+
 
 
 
