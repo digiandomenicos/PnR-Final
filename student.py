@@ -305,9 +305,8 @@ class Piggy(pigo.Pigo):
         while True:
             if self.is_clear():
                 self.cruise()
-            elif not self.is_clear():
-                self.encB(2)
-                self.servo(self.MIDPOINT)
+            if self.dist > SAFE_STOP_DIST():
+                self.safe_to_dance()
             return True
 
     def check(self):
