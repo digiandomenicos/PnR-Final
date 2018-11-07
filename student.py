@@ -305,9 +305,10 @@ class Piggy(pigo.Pigo):
         while True:
             if self.is_clear():
                 self.cruise()
-            if self.dist > SAFE_STOP_DIST():
-                self.safe_to_dance()
-            return True
+            if not self.is_clear:
+                self.encL(8)
+                if self.is_clear:
+                    self.cruise()
 
     def check(self):
         self.wide_scan(count=4)  # scan the area #i would really like the robot to move faster
@@ -328,7 +329,18 @@ class Piggy(pigo.Pigo):
         """ drive straight while path is clear """
         self.fwd()
         while self.dist() > self.SAFE_STOP_DIST:
+            self.servo(self.MIDPOINT)
             time.sleep(.1)
+            break
+
+        self.servo(self.MIDPOINT +10):
+            if self.dist() > self.SAFE_STOP_DIST:
+                break
+
+        self.servo(self.MIDPOINT -10):
+            if self.dist() > self.SAFE_STOP_DIST:
+                break
+
         self.stop()
         self.encB(2)
 
