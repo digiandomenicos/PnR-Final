@@ -315,8 +315,8 @@ class Piggy(pigo.Pigo):
                 if self.is_clear():
                     self.cruise()
 
-
-    def check(self):
+    #-this method did not work - but I left it in to show progress- trying to copy the Skill_test method -
+    """def check(self):
         self.wide_scan(count=4)  # scan the area #i would really like the robot to move faster
         left_total = 0
         right_total = 0
@@ -329,7 +329,7 @@ class Piggy(pigo.Pigo):
         if right_total > left_total:
             self.encR(6)
         if right_total < left_total:
-            self.encL(6)
+            self.encL(6)"""
 
     def cruise(self):
         """ drive straight while path is clear """
@@ -339,11 +339,11 @@ class Piggy(pigo.Pigo):
             if self.dist() < self.SAFE_STOP_DIST:
                 break
 
-            self.servo(self.MIDPOINT +5) # if five degrees from the midpoint is
+            self.servo(self.MIDPOINT +10) # if five degrees from the midpoint is
             if self.dist() > self.SAFE_STOP_DIST:
                 break
 
-            self.servo(self.MIDPOINT -5)
+            self.servo(self.MIDPOINT -10)
             if self.dist() > self.SAFE_STOP_DIST:
                 break
 
