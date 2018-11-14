@@ -347,6 +347,9 @@ class Piggy(pigo.Pigo):
             self.servo(self.MIDPOINT -10) #looking left?
             if self.dist() > self.SAFE_STOP_DIST:
                 break
+            else:
+                self.encF(5)
+                break
 
         self.stop()
 
