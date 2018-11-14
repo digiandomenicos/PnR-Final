@@ -306,9 +306,15 @@ class Piggy(pigo.Pigo):
             if self.is_clear():
                 self.cruise()
             if not self.is_clear: #checking if clear each time to make sure
-                self.check()
+                self.encB(3)
+                self.encL(3)
+                if self.is_clear:
+                    self.cruise()
             else:
-                break
+                self.encB(3)
+                self.encR(3) #turning right
+                if self.is_clear():
+                    self.cruise()
 
     #-this method did not work - but I left it in to show progress- trying to copy the Skill_test method -
     """def check(self):
@@ -328,9 +334,6 @@ class Piggy(pigo.Pigo):
 
     def cruise(self):
         """ drive straight while path is clear """
-        self. encF(18)
-
-    def check(self):
         self.fwd()
         while True:
             self.servo(self.MIDPOINT)
@@ -344,7 +347,9 @@ class Piggy(pigo.Pigo):
             self.servo(self.MIDPOINT -10) #looking left?
             if self.dist() > self.SAFE_STOP_DIST:
                 break
-
+            else:
+                self.encF(5)
+                break
 
         self.stop()
 
