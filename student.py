@@ -305,16 +305,17 @@ class Piggy(pigo.Pigo):
         while True:
             if self.is_clear():
                 self.cruise()
-            if not self.is_clear: #checking if clear each time to make sure
+
+            else: #checking if clear each time to make sure
                 self.encB(3)
                 self.encL(3)
                 if self.is_clear:
                     self.cruise()
-            else:
-                self.encB(3)
-                self.encR(3) #turning right
-                if self.is_clear():
-                    self.cruise()
+                else:
+                    self.encB(3)
+                    self.encR(6) #turning right
+                    if self.is_clear():
+                        self.cruise()
 
     #-this method did not work - but I left it in to show progress- trying to copy the Skill_test method -
     """def check(self):
