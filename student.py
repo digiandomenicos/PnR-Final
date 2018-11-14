@@ -305,13 +305,14 @@ class Piggy(pigo.Pigo):
         while True:
             if self.is_clear():
                 self.cruise()
-            if not self.is_clear:
-                self.encL(9)
+            if not self.is_clear: #checking if clear each time to make sure
+                self.encB(3)
+                self.encL(3)
                 if self.is_clear:
                     self.cruise()
             else:
                 self.encB(3)
-                self.encR(9)
+                self.encR(3) #turning right
                 if self.is_clear():
                     self.cruise()
 
@@ -337,13 +338,13 @@ class Piggy(pigo.Pigo):
         while True:
             self.servo(self.MIDPOINT)
             if self.dist() < self.SAFE_STOP_DIST:
-                break
+                break #break each time to avoid being stuck in a loop
 
-            self.servo(self.MIDPOINT +10) # if five degrees from the midpoint is
+            self.servo(self.MIDPOINT +10) # if ten degrees from the midpoint is
             if self.dist() > self.SAFE_STOP_DIST:
                 break
 
-            self.servo(self.MIDPOINT -10)
+            self.servo(self.MIDPOINT -10) #looking left?
             if self.dist() > self.SAFE_STOP_DIST:
                 break
 
