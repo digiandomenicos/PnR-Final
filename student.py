@@ -20,7 +20,7 @@ class Piggy(pigo.Pigo):
         # Our servo turns the sensor. What angle of the servo( ) method sets it straight?
         self.MIDPOINT = 103
         # YOU DECIDE: How close can an object get (cm) before we have to stop?
-        self.SAFE_STOP_DIST = 1
+        self.SAFE_STOP_DIST = 5
         self.HARD_STOP_DIST = 15
         # YOU DECIDE: What left motor power helps straighten your fwd()?
         self.LEFT_SPEED = 155
@@ -306,15 +306,9 @@ class Piggy(pigo.Pigo):
             if self.is_clear():
                 self.cruise()
             if not self.is_clear: #checking if clear each time to make sure
-                self.encB(3)
-                self.encL(3)
-                if self.is_clear:
-                    self.cruise()
+                self.check()
             else:
-                self.encB(3)
-                self.encR(3) #turning right
-                if self.is_clear():
-                    self.cruise()
+                break
 
     #-this method did not work - but I left it in to show progress- trying to copy the Skill_test method -
     """def check(self):
@@ -334,6 +328,9 @@ class Piggy(pigo.Pigo):
 
     def cruise(self):
         """ drive straight while path is clear """
+        self. encF(18)
+
+    def check(self):
         self.fwd()
         while True:
             self.servo(self.MIDPOINT)
@@ -347,9 +344,7 @@ class Piggy(pigo.Pigo):
             self.servo(self.MIDPOINT -10) #looking left?
             if self.dist() > self.SAFE_STOP_DIST:
                 break
-            else:
-                self.encF(5)
-                break
+
 
         self.stop()
 
