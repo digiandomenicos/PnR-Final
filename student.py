@@ -337,11 +337,11 @@ class Piggy(pigo.Pigo):
         """ drive straight while path is clear """
         self.fwd()
         while True:
-            self.servo(self.MIDPOINT)
+            self.servo(self.MIDPOINT) #make head straight
             if self.dist() < self.SAFE_STOP_DIST:
                 break #break each time to avoid being stuck in a loop
 
-            self.servo(self.MIDPOINT +15) # if ten degrees from the midpoint is
+            self.servo(self.MIDPOINT +15) # if 15 degrees from the midpoint is
             if self.dist() > self.SAFE_STOP_DIST:
                 break
 
