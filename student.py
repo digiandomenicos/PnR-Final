@@ -308,11 +308,11 @@ class Piggy(pigo.Pigo):
 
             else: #checking if clear each time to make sure
                 self.encB(4)
-                self.encL(4)
+                self.encL(7)
                 if self.is_clear:
                     self.cruise()
                 else:
-                    self.encB(4)
+                    self.encB(7)
                     self.encR(4) #turning right
                     if self.is_clear():
                         self.cruise()
@@ -336,7 +336,7 @@ class Piggy(pigo.Pigo):
     def cruise(self):
         """ drive straight while path is clear """
         self.fwd()
-        while True:
+        while True: #to mske sure that the robot's sides don't hit any part of the boxesr
             self.servo(self.MIDPOINT) #make head straight
             if self.dist() < self.SAFE_STOP_DIST:
                 break #break each time to avoid being stuck in a loop
