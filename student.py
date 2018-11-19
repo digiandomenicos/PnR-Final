@@ -341,11 +341,11 @@ class Piggy(pigo.Pigo):
             if self.dist() < self.SAFE_STOP_DIST:
                 break #break each time to avoid being stuck in a loop
 
-            self.servo(self.MIDPOINT +20) # if 15 degrees from the midpoint is
+            self.servo(self.MIDPOINT +30) # if 15 degrees from the midpoint is
             if self.dist() > self.SAFE_STOP_DIST:
-                break
+                break #pulse drive
 
-            self.servo(self.MIDPOINT -20) #looking left?
+            self.servo(self.MIDPOINT -30) #looking left?
             if self.dist() > self.SAFE_STOP_DIST:
                 break
             else:
