@@ -32,6 +32,8 @@ class Piggy(pigo.Pigo):
         self.scan = [None] * 180
         self.set_speed(self.LEFT_SPEED, self.RIGHT_SPEED)
         # let's use an event-driven model, make a handler of sorts to listen for "events"
+        self.left_total=0
+        self.right_total=0
         if __name__ == "__main__":
             while True:
                 self.stop()
@@ -305,12 +307,12 @@ class Piggy(pigo.Pigo):
         while True:
             if self.is_clear():
                 self.cruise()
-            elif right_total < left_total: #checking if clear each time to make sure
+            else: #checking if clear each time to make sure
                 self.encB(4)
                 self.encL(7)
                 if self.is_clear:
                     self.cruise()
-                elif right_total > left_totaL:
+                else:
                     self.encB(4)
                     self.encR(14) #turning right
                     if self.is_clear():
