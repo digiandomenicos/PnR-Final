@@ -305,13 +305,12 @@ class Piggy(pigo.Pigo):
         while True:
             if self.is_clear():
                 self.cruise()
-
-            else: #checking if clear each time to make sure
+            elif right_total < left_total: #checking if clear each time to make sure
                 self.encB(4)
                 self.encL(7)
                 if self.is_clear:
                     self.cruise()
-                else:
+                elif right_total > left_totaL:
                     self.encB(4)
                     self.encR(14) #turning right
                     if self.is_clear():
