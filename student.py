@@ -318,7 +318,26 @@ class Piggy(pigo.Pigo):
                     if self.is_clear():
                         self.cruise()
 
+    def cruise(self):
+        """ drive straight while path is clear """
+        self.fwd()
+        while True:  # to mske sure that the robot's sides don't hit any part of the boxesr
+            self.servo(self.MIDPOINT)  # make head straight
+            if self.dist() < self.SAFE_STOP_DIST:
+                break  # break each time to avoid being stuck in a loop
 
+            self.servo(self.MIDPOINT + 50)  # if 15 degrees from the midpoint is
+            if self.dist() > self.SAFE_STOP_DIST:
+                break  # pulse drive
+
+            self.servo(self.MIDPOINT - 50)  # looking left?
+            if self.dist() > self.SAFE_STOP_DIST:
+                break
+            else:
+                self.encF(5)
+                break
+
+        self.stop()
 
 
     #-this method did not work - but I left it in to show progress- trying to copy the Skill_test method -
@@ -337,26 +356,7 @@ class Piggy(pigo.Pigo):
         if right_total < left_total:
             self.encL(6)"""
 
-    def cruise(self):
-        """ drive straight while path is clear """
-        self.fwd()
-        while True: #to mske sure that the robot's sides don't hit any part of the boxesr
-            self.servo(self.MIDPOINT) #make head straight
-            if self.dist() < self.SAFE_STOP_DIST:
-                break #break each time to avoid being stuck in a loop
 
-            self.servo(self.MIDPOINT +30) # if 15 degrees from the midpoint is
-            if self.dist() > self.SAFE_STOP_DIST:
-                break #pulse drive
-
-            self.servo(self.MIDPOINT -30) #looking left?
-            if self.dist() > self.SAFE_STOP_DIST:
-                break
-            else:
-                self.encF(5)
-                break
-
-        self.stop()
 
 
 
