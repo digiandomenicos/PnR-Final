@@ -311,7 +311,7 @@ class Piggy(pigo.Pigo):
                 self.cruise()
                 error_count = 0
             else:
-                error_count +=1:
+                error_count +=1
                 if error_count ==10:
                     raw input("hey, what's up?")
             else: #checking if clear each time to make sure
