@@ -313,7 +313,7 @@ class Piggy(pigo.Pigo):
             else:
                 error_count +=1
                 if error_count ==10:
-                    raw input("hey, what's up?")
+                    raw input ("hey, what's up?")
             else: #checking if clear each time to make sure
                 self.encB(4)
                 self.encL(4)
