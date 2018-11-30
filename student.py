@@ -304,39 +304,58 @@ class Piggy(pigo.Pigo):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         print("-------- [ Press CTRL + C to stop me ] --------\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
+        count = 0
+        error_count = 0
         while True:
             if self.is_clear():
                 self.cruise()
+                error_count = 0
+            else:
+                error_count +=1:
+                if error_count ==10:
+                    raw input("hey, what's up?")
             else: #checking if clear each time to make sure
                 self.encB(4)
                 self.encL(4)
                 if self.is_clear:
                     self.cruise()
-                else:
-                    self.encB(4)
-                    self.encR(8) #turning right
-                    if self.is_clear():
-                        self.cruise()
+                    count += 1
+            else:
+                self.encB(4)
+                self.encR(8) #turning right
+                if self.is_clear():
+                    self.cruise()
+                    count += 1
+
+
+    def is_clear_infront(self):
+        """checks the scan array to see if there is a path dead ahead"""
+        for ang in range (self.MIDPOINT-10, self.MIDPOINT +10):
+            if self.scan[ang] and self.scan[ang] < self.SAFE_STOP_DIST:
+                return False
 
     def cruise(self):
         """ drive straight while path is clear """
         self.fwd()
         while True:  # to mske sure that the robot's sides don't hit any part of the boxesr
+
+            if self.is_clear_infront():
+                self.encF(5)
+
             self.servo(self.MIDPOINT)  # make head straight
-            if self.dist() < self.SAFE_STOP_DIST:
+            elif self.dist() < self.SAFE_STOP_DIST:
                 break  # break each time to avoid being stuck in a loop
 
             self.servo(self.MIDPOINT + 50)  # if 15 degrees from the midpoint is
-            if self.dist() > self.SAFE_STOP_DIST:
+            elif self.dist() > self.SAFE_STOP_DIST:
                 break  # pulse drive
 
             self.servo(self.MIDPOINT - 50)  # looking left?
-            if self.dist() > self.SAFE_STOP_DIST:
+            elif self.dist() > self.SAFE_STOP_DIST:
                 break
             else:
-                self.encF(5)
+                self.encF(1)
                 break
-
         self.stop()
 
 
