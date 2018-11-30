@@ -311,9 +311,9 @@ class Piggy(pigo.Pigo):
                 self.cruise()
                 error_count = 0
             else:
-                error_count +=1
+                error_count +=1:
                 if error_count ==10:
-                    raw input ("hey, what's up?")
+                    raw input("hey, what's up?")
             else: #checking if clear each time to make sure
                 self.encB(4)
                 self.encL(4)
@@ -326,6 +326,9 @@ class Piggy(pigo.Pigo):
                 if self.is_clear():
                     self.cruise()
                     count += 1
+            else: #check if no turn is needed
+                if self.is_clear_infront():
+                    self.cruise()
 
 
     def is_clear_infront(self):
@@ -338,39 +341,39 @@ class Piggy(pigo.Pigo):
         """ drive straight while path is clear """
         self.fwd()
         while True:  # to mske sure that the robot's sides don't hit any part of the boxesr
-
-            if self.is_clear_infront():
-                self.encF(5)
-
             self.servo(self.MIDPOINT)  # make head straight
-            elif self.dist() < self.SAFE_STOP_DIST:
+            if self.dist() < self.SAFE_STOP_DIST:
                 break  # break each time to avoid being stuck in a loop
 
             self.servo(self.MIDPOINT + 50)  # if 15 degrees from the midpoint is
-            elif self.dist() > self.SAFE_STOP_DIST:
+            if self.dist() > self.SAFE_STOP_DIST:
                 break  # pulse drive
 
             self.servo(self.MIDPOINT - 50)  # looking left?
-            elif self.dist() > self.SAFE_STOP_DIST:
+            if self.dist() > self.SAFE_STOP_DIST:
+                break
+            else:
+                self.encF(5)
                 break
 
+        self.stop()
 
 
     #-this method did not work - but I left it in to show progress- trying to copy the Skill_test method -
-("def check(self):\n"
- "        self.wide_scan(count=4)  # scan the area #i would really like the robot to move faster\n"
- "        left_total = 0\n"
- "        right_total = 0\n"
- "        for angle in range(self.MIDPOINT - 60, self.MIDPOINT):\n"
- "            if self.scan[angle]:\n"
- "                right_total += self.scan[angle]\n"
- "        for angle in range(self.MIDPOINT, self.MIDPOINT + 60):\n"
- "            if self.scan[angle]:\n"
- "                left_total += self.scan[angle]\n"
- "        if right_total > left_total:\n"
- "            self.encR(6)\n"
- "        if right_total < left_total:\n"
- "            self.encL(6)")
+    """def check(self):
+        self.wide_scan(count=4)  # scan the area #i would really like the robot to move faster
+        left_total = 0
+        right_total = 0
+        for angle in range(self.MIDPOINT - 60, self.MIDPOINT):
+            if self.scan[angle]:
+                right_total += self.scan[angle]
+        for angle in range(self.MIDPOINT, self.MIDPOINT + 60):
+            if self.scan[angle]:
+                left_total += self.scan[angle]
+        if right_total > left_total:
+            self.encR(6)
+        if right_total < left_total:
+            self.encL(6)"""
 
 
 
