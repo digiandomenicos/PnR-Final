@@ -353,27 +353,24 @@ class Piggy(pigo.Pigo):
             self.servo(self.MIDPOINT - 50)  # looking left?
             elif self.dist() > self.SAFE_STOP_DIST:
                 break
-            else:
-                self.encF(1)
-                break
-        self.stop()
+
 
 
     #-this method did not work - but I left it in to show progress- trying to copy the Skill_test method -
-    """def check(self):
-        self.wide_scan(count=4)  # scan the area #i would really like the robot to move faster
-        left_total = 0
-        right_total = 0
-        for angle in range(self.MIDPOINT - 60, self.MIDPOINT):
-            if self.scan[angle]:
-                right_total += self.scan[angle]
-        for angle in range(self.MIDPOINT, self.MIDPOINT + 60):
-            if self.scan[angle]:
-                left_total += self.scan[angle]
-        if right_total > left_total:
-            self.encR(6)
-        if right_total < left_total:
-            self.encL(6)"""
+("def check(self):\n"
+ "        self.wide_scan(count=4)  # scan the area #i would really like the robot to move faster\n"
+ "        left_total = 0\n"
+ "        right_total = 0\n"
+ "        for angle in range(self.MIDPOINT - 60, self.MIDPOINT):\n"
+ "            if self.scan[angle]:\n"
+ "                right_total += self.scan[angle]\n"
+ "        for angle in range(self.MIDPOINT, self.MIDPOINT + 60):\n"
+ "            if self.scan[angle]:\n"
+ "                left_total += self.scan[angle]\n"
+ "        if right_total > left_total:\n"
+ "            self.encR(6)\n"
+ "        if right_total < left_total:\n"
+ "            self.encL(6)")
 
 
 
