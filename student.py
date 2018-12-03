@@ -383,7 +383,7 @@ def error():
 
 
 def quit_now():
-    """shuts down app
+    shuts down app
     raise SystemExit
 
 
