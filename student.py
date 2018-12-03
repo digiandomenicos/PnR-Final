@@ -396,4 +396,4 @@ try:
 except (KeyboardInterrupt, SystemExit):
     pigo.stop_now()
 except Exception as ee:
-    logging.error(ee.__str__()
+    logging.error(ee.__str__()"""
