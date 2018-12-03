@@ -329,7 +329,7 @@ class Piggy(pigo.Pigo):
             if self.scan[ang] and self.scan[ang] < self.SAFE_STOP_DIST:
                 return False
 
-    def cruise(self):
+    """def cruise(self):
         """ pulse drive straight while path is clear """
 
 
