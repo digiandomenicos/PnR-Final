@@ -377,13 +377,13 @@ class Piggy(pigo.Pigo):
 ############### STATIC FUNCTIONS
 
 def error():
-    """records general, less specific error"""
+    records general,less specific error
     logging.error("ERROR")
-    print('ERROR')
+    print('ERROR')""""""
 
 
 def quit_now():
-    """shuts down app"""
+    """shuts down app
     raise SystemExit
 
 
