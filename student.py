@@ -329,16 +329,12 @@ class Piggy(pigo.Pigo):
             if self.scan[ang] and self.scan[ang] < self.SAFE_STOP_DIST:
                 return False
 
-    def cruise(self):   # drive straight while path is clear
+    def cruise(self):
+        """ drive straight while path is clear"""
+        self.fwd()
         while self.dist() > self.SAFE_STOP_DIST:
-                self.fwd()
-                time.sleep(.1)
-        else:
-
-            self.encB(17)  # turn around
-            self.servo(self.MIDPOINT)  #make head straight
-            time.sleep(.1)
-            return False
+            time.sleep(.5)
+        self.stop()
 
 
     """def cruise(self):
