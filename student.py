@@ -335,9 +335,9 @@ class Piggy(pigo.Pigo):
                 time.sleep(.1)
         else:
 
-            self.encB(17)  # turn aroumd
+            self.encB(17)  # turn around
             self.servo(self.MIDPOINT)  #make head straight
-            time.sleep(.5)
+            time.sleep(.1)
             return False
 
 
