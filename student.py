@@ -330,7 +330,7 @@ class Piggy(pigo.Pigo):
                 return False
 
     """def cruise(self):
-        """ pulse drive straight while path is clear """
+         pulse drive straight while path is clear 
 
 
         self.servo(self.MIDPOINT)  # make head straight
@@ -351,8 +351,8 @@ class Piggy(pigo.Pigo):
         self.stop()
 
 
-    #-this method did not work - but I left it in to show progress- trying to copy the Skill_test method -
-    """def check(self):
+    #-this method did not work - but I left it in to show progress- trying to copy the Skill_test method -"""
+    def check(self):
         self.wide_scan(count=4)  # scan the area #i would really like the robot to move faster
         left_total = 0
         right_total = 0
