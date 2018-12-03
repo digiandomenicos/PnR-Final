@@ -308,7 +308,7 @@ class Piggy(pigo.Pigo):
         error_count = 0
         while True:
             if self.is_clear():
-                self.encF(10)
+                self.cruise()
                 error_count = 0
             else:
                 error_count +=1
@@ -328,6 +328,18 @@ class Piggy(pigo.Pigo):
         for ang in range (self.MIDPOINT-10, self.MIDPOINT +10):
             if self.scan[ang] and self.scan[ang] < self.SAFE_STOP_DIST:
                 return False
+
+    def cruise(self):   # drive straight while path is clear
+        while self.dist() > self.SAFE_STOP_DIST:
+                self.fwd()
+                time.sleep(.1)
+        else:
+
+            self.encB(17)  # turn aroumd
+            self.servo(self.MIDPOINT)  #make head straight
+            time.sleep(.5)
+            return False
+
 
     """def cruise(self):
          pulse drive straight while path is clear 
