@@ -379,7 +379,7 @@ class Piggy(pigo.Pigo):
 def error():
     records general,less specific error
     logging.error("ERROR")
-    print('ERROR')""""""
+    print('ERROR')"""""
 
 
 def quit_now():
