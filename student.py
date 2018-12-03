@@ -319,7 +319,7 @@ class Piggy(pigo.Pigo):
                 self.encL(4)
                 if not self.is_clear():
                     self.encB(4)
-                    self.encR(8) #turning right
+                    self.encR(4) #turning right
 
 
 
