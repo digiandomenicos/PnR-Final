@@ -313,7 +313,7 @@ class Piggy(pigo.Pigo):
             else:
                 error_count +=1
                 if error_count ==10:
-                    pass
+                    raw_input("hey, what's up?")
 
                 self.encB(4)
                 self.encL(4)
@@ -365,7 +365,7 @@ class Piggy(pigo.Pigo):
         if right_total > left_total:
             self.encR(6)
         if right_total < left_total:
-            self.encL(6)"""
+            self.encL(6)
 
 
 
@@ -377,15 +377,14 @@ class Piggy(pigo.Pigo):
 ############### STATIC FUNCTIONS
 
 def error():
-    records general,less specific error
+    """records general, less specific error"""
     logging.error("ERROR")
     print('ERROR')
 
 
 def quit_now():
-    shuts down app
+    """shuts down app"""
     raise SystemExit
-
 
 ##################################################################
 ######## The app starts right here when we instantiate our GoPiggy
@@ -396,4 +395,4 @@ try:
 except (KeyboardInterrupt, SystemExit):
     pigo.stop_now()
 except Exception as ee:
-    logging.error(ee.__str__()"""
+    logging.error(ee.__str__())
