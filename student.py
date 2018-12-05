@@ -34,7 +34,7 @@ class Piggy(pigo.Pigo):
         # let's use an event-driven model, make a handler of sorts to listen for "events"
         self.left_total=0
         self.right_total=0
-        self.A_LITTLE_BIT=10
+        self.A_LITTLE_BIT=11
         if __name__ == "__main__":
             while True:
                 self.stop()
