@@ -309,7 +309,7 @@ class Piggy(pigo.Pigo):
         error_count = 0
         while True:
             if self.is_clear():
-                self.(self.A_LITTLE_BIT)
+                self.encF(self.A_LITTLE_BIT)
                 error_count = 0
             else:
                 error_count += 1
