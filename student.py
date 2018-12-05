@@ -34,6 +34,7 @@ class Piggy(pigo.Pigo):
         # let's use an event-driven model, make a handler of sorts to listen for "events"
         self.left_total=0
         self.right_total=0
+        self.A_LITTLE_BIT=4
         if __name__ == "__main__":
             while True:
                 self.stop()
@@ -308,18 +309,18 @@ class Piggy(pigo.Pigo):
         error_count = 0
         while True:
             if self.is_clear():
-                self.cruise()
+                self.(self.A_LITTLE_BIT)
                 error_count = 0
             else:
-                error_count +=1
+                error_count += 1
                 if error_count ==10:
                     raw_input("hey, what's up?")
 
-                self.encB(4)
-                self.encL(4)
+                self.encB(self.A_LITTLE_BIT)
+                self.encL(self.A_LITTLE_BIT)
                 if not self.is_clear():
-                    self.encB(4)
-                    self.encR(4) #turning right
+                    self.encB(self.A_LITTLE_BIT)
+                    self.encR(self.A_LITTLE_BIT) #turning right
 
 
 
