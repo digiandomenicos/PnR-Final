@@ -35,7 +35,7 @@ class Piggy(pigo.Pigo):
         self.left_total=0
         self.right_total=0
         self.A_LITTLE_BIT=4
-        self.A_LITTLE_BIT_MORE = 11
+        self.A_LITTLE_BIT_MORE = 20
         if __name__ == "__main__":
             while True:
                 self.stop()
