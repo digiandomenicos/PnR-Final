@@ -325,14 +325,18 @@ class Piggy(pigo.Pigo):
                 for ang in range(self.MIDPOINT, 180):
                     if scan[ang]:
                         left_total += scan[ang]
-                if right_total > left_total:
-                    self.encB(self.A_LITTLE_BIT)
-                    self.encR(self.A_LITTLE_BIT) #turning right
-                elif left_total > left_total:
-                    self.encB(self.A_LITTLE_BIT)
-                    self.encL(self.A_LITTLE_BIT)
+                    elif front_clear:
+                        self.encF(self.A_LITTLE_BIT)
+                    if right_total > left_total:
+                        self.encB(self.A_LITTLE_BIT)
+                        self.encR(self.A_LITTLE_BIT) #turning right
+                    if left_total > left_total:
+                        self.encB(self.A_LITTLE_BIT)
+                        self.encL(self.A_LITTLE_BIT)
 
-    def is_clear_infront(self):
+
+
+    def front_clear (self):
         """checks the scan array to see if there is a path dead ahead"""
         for ang in range (self.MIDPOINT-10, self.MIDPOINT +10):
             if self.scan[ang] and self.scan[ang] < self.SAFE_STOP_DIST:
