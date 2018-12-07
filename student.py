@@ -25,7 +25,7 @@ class Piggy(pigo.Pigo):
         # YOU DECIDE: What left motor power helps straighten your fwd()?
         self.LEFT_SPEED = 155
         # YOU DECIDE: What left motor power helps straighten your fwd()?
-        self.RIGHT_SPEED = 150
+        self.RIGHT_SPEED =150
         # This one isn't capitalized because it changes during runtime, the others don't
         self.turn_track = 0
         # Our scan list! The index will be the degree and it will store distance
@@ -313,6 +313,8 @@ class Piggy(pigo.Pigo):
                 self.encF(self.A_LITTLE_BIT_MORE)
                 error_count = 0
             else:
+                left_total = 0
+                right_total = 0
                 error_count += 1
                 if error_count ==10:
                     raw_input("hey, what's up?")
@@ -320,8 +322,12 @@ class Piggy(pigo.Pigo):
                 self.encB(self.A_LITTLE_BIT)
                 self.encL(self.A_LITTLE_BIT)
                 if not self.is_clear():
-                    self.encB(self.A_LITTLE_BIT)
-                    self.encR(self.A_LITTLE_BIT) #turning right
+                    if right_total > left_total:
+                        self.encB(self.A_LITTLE_BIT)
+                        self.encR(self.A_LITTLE_BIT) #turning right
+                    elif left_total > left_total:
+                        self.encB(self.A_LITTLE_BIT)
+                        self.encL(self.A_LITTLE_BIT)
 
 
 
@@ -374,7 +380,7 @@ class Piggy(pigo.Pigo):
                 left_total += self.scan[angle]
         if right_total > left_total:
             self.encR(6)
-        if right_total < left_total:
+        elif right_total < left_total:
             self.encL(6)
 
 
