@@ -325,13 +325,21 @@ class Piggy(pigo.Pigo):
                 for ang in range(self.MIDPOINT, 180):
                     if scan[ang]:
                         left_total += scan[ang]
-                if right_total > left_total:
+                if self.is_clear_infront:
+                    self.encF(self.A_LITTLE_BIT)
+                elif right_total > left_total:
                     self.encB(self.A_LITTLE_BIT)
                     self.encR(self.A_LITTLE_BIT) #turning right
                 elif left_total > left_total:
                     self.encB(self.A_LITTLE_BIT)
                     self.encL(self.A_LITTLE_BIT)
 
+    def is_clear_infront(self):
+
+        # check for obstacles
+        for ang in range(self.MIDPOINT - 10, self.MIDPOINT + 10):
+            if self.scan[ang] and self.scan[ang] < self.SAFE_STOP_DIST:
+                return False
 
 
     def is_clear_infront(self):
