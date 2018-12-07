@@ -319,8 +319,6 @@ class Piggy(pigo.Pigo):
                 if error_count ==10:
                     raw_input("hey, what's up?")
 
-                self.encB(self.A_LITTLE_BIT)
-                self.encL(self.A_LITTLE_BIT)
                 if not self.is_clear():
                     if right_total > left_total:
                         self.encB(self.A_LITTLE_BIT)
