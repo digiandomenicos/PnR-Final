@@ -313,19 +313,24 @@ class Piggy(pigo.Pigo):
                 self.encF(self.A_LITTLE_BIT_MORE)
                 error_count = 0
             else:
+                self.wide_scan(count=5)
                 left_total = 0
                 right_total = 0
                 error_count += 1
                 if error_count ==10:
                     raw_input("hey, what's up?")
-
-                if not self.is_clear():
-                    if right_total > left_total:
-                        self.encB(self.A_LITTLE_BIT)
-                        self.encR(self.A_LITTLE_BIT) #turning right
-                    elif left_total > left_total:
-                        self.encB(self.A_LITTLE_BIT)
-                        self.encL(self.A_LITTLE_BIT)
+                for ang in range(0,self.MIDPOINT):
+                    if scan[ang]:
+                        right_total += scan[ang]
+                for ang in range(self.MIDPOINT, 180):
+                    if scan[ang]:
+                        left_total += scan[ang]
+                if right_total > left_total:
+                    self.encB(self.A_LITTLE_BIT)
+                    self.encR(self.A_LITTLE_BIT) #turning right
+                elif left_total > left_total:
+                    self.encB(self.A_LITTLE_BIT)
+                    self.encL(self.A_LITTLE_BIT)
 
 
 
