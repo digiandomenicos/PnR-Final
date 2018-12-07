@@ -325,14 +325,14 @@ class Piggy(pigo.Pigo):
                 for ang in range(self.MIDPOINT, 180):
                     if scan[ang]:
                         left_total += scan[ang]
-                    elif front_clear:
-                        self.encF(self.A_LITTLE_BIT)
-                    if right_total > left_total:
-                        self.encB(self.A_LITTLE_BIT)
-                        self.encR(self.A_LITTLE_BIT) #turning right
-                    if left_total > left_total:
-                        self.encB(self.A_LITTLE_BIT)
-                        self.encL(self.A_LITTLE_BIT)
+                if front_clear:
+                    self.encF(self.A_LITTLE_BIT)
+                elif right_total > left_total:
+                    self.encB(self.A_LITTLE_BIT)
+                    self.encR(self.A_LITTLE_BIT) #turning right
+                if left_total > left_total:
+                    self.encB(self.A_LITTLE_BIT)
+                    self.encL(self.A_LITTLE_BIT)
 
 
 
