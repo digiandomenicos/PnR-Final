@@ -325,7 +325,7 @@ class Piggy(pigo.Pigo):
             self.cruise()
 
         else:
-            self.wide_scan(count=6)
+            self.wide_scan(count=5)
             left_total = 0
             right_total = 0
             for angle in range(self.MIDPOINT -59, self.MIDPOINT): #the MIDPOINT -60 to the mipoint
@@ -339,9 +339,11 @@ class Piggy(pigo.Pigo):
             elif right_total > left_total:
                 self.encB(self.A_LITTLE_BIT) #moving a set value
                 self.encR(self.A_LITTLE_BIT) #turning right
+                self.cruise()
             elif left_total > left_total:
                 self.encB(self.A_LITTLE_BIT) #turning left
                 self.encL(self.A_LITTLE_BIT)
+                self.cruise()
             return True
 
 
