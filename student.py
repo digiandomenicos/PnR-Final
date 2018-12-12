@@ -313,22 +313,22 @@ class Piggy(pigo.Pigo):
                 self.cruise()
                 error_count = 0
             else:
-                self.wide_scan(count=4)
+                self.wide_scan(count=6)
                 left_total = 0
                 right_total = 0
                 error_count += 1 #if the robot get's stuck in a loop
                 if error_count ==10:
                     raw_input("hey, what's up?")
-                for ang in range(0,self.MIDPOINT):
+                for ang in range(-60,self.MIDPOINT):
                     if scan[ang]:
-                        right_total += scan[ang]
-                for ang in range(self.MIDPOINT, 180):
+                        right_total += scan[ang] # adding to the right value
+                for ang in range(self.MIDPOINT, 60):
                     if scan[ang]:
-                        left_total += scan[ang]
-                if front_clear: #if the fromt is clear, go forward
-                    self.encF(self.A_LITTLE_BIT)
+                        left_total += scan[ang] #adding to the left value
+                if front_clear: #if the front is clear, go forward
+                    self.cruise()
                 elif right_total > left_total:
-                    self.encB(self.A_LITTLE_BIT) #turning a set value
+                    self.encB(self.A_LITTLE_BIT) #moving a set value
                     self.encR(self.A_LITTLE_BIT) #turning right
                 elif left_total > left_total:
                     self.encB(self.A_LITTLE_BIT) #turning left
