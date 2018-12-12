@@ -330,11 +330,11 @@ class Piggy(pigo.Pigo):
             right_total = 0
             for angle in range(self.MIDPOINT -60, self.MIDPOINT): #the MIDPOINT -60 to the mipoint
                 if self.scan[angle]:
-                    right_total += scan[angle] # adding to the right value
+                    right_total += self.scan[angle] # adding to the right value
             for angle in range(self.MIDPOINT, self.MIDPOINT +60): #adding 60 to the midpoint
                 if self.scan[angle]:
-                    left_total += scan[ang] #adding to the left value
-            if front_clear: #if the front is clear, go forward
+                    left_total += self.scan[angle] #adding to the left value
+            if self.front_clear(): #if the front is clear, go forward
                 self.cruise()
             elif right_total > left_total:
                 self.encB(self.A_LITTLE_BIT) #moving a set value
