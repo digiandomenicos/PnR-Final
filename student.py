@@ -319,11 +319,11 @@ class Piggy(pigo.Pigo):
                 error_count += 1 #if the robot get's stuck in a loop
                 if error_count ==10:
                     raw_input("hey, what's up?")
-                for ang in range(-60,self.MIDPOINT):
-                    if scan[ang]:
-                        right_total += scan[ang] # adding to the right value
-                for ang in range(self.MIDPOINT, 60):
-                    if scan[ang]:
+                for angle in range(self.MIDPOINT -60, self.MIDPOINT): #the MIDPOINT -60 to the mipoint
+                    if self.scan[angle]:
+                        right_total += scan[angle] # adding to the right value
+                for angle in range(self.MIDPOINT, self.MIDPOINT +60): #adding 60 to the midpoint
+                    if self.scan[angle]:
                         left_total += scan[ang] #adding to the left value
                 if front_clear: #if the front is clear, go forward
                     self.cruise()
