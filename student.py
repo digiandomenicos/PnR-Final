@@ -328,7 +328,7 @@ class Piggy(pigo.Pigo):
             self.wide_scan(count=6)
             left_total = 0
             right_total = 0
-            for angle in range(self.MIDPOINT -60, self.MIDPOINT): #the MIDPOINT -60 to the mipoint
+            for angle in range(self.MIDPOINT -59, self.MIDPOINT): #the MIDPOINT -60 to the mipoint
                 if self.scan[angle]:
                     right_total += self.scan[angle] # adding to the right value
             for angle in range(self.MIDPOINT, self.MIDPOINT +60): #adding 60 to the midpoint
