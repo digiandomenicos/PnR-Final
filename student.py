@@ -310,13 +310,13 @@ class Piggy(pigo.Pigo):
         error_count = 0
         while True:
             if self.is_clear():
-                self.encF(self.A_LITTLE_BIT_MORE)
+                self.cruise()
                 error_count = 0
             else:
-                self.wide_scan(count=5)
+                self.wide_scan(count=4)
                 left_total = 0
                 right_total = 0
-                error_count += 1
+                error_count += 1 #if the robot get's stuck in a loop
                 if error_count ==10:
                     raw_input("hey, what's up?")
                 for ang in range(0,self.MIDPOINT):
@@ -325,20 +325,20 @@ class Piggy(pigo.Pigo):
                 for ang in range(self.MIDPOINT, 180):
                     if scan[ang]:
                         left_total += scan[ang]
-                if front_clear:
+                if front_clear: #if the fromt is clear, go forward
                     self.encF(self.A_LITTLE_BIT)
                 elif right_total > left_total:
-                    self.encB(self.A_LITTLE_BIT)
+                    self.encB(self.A_LITTLE_BIT) #turning a set value
                     self.encR(self.A_LITTLE_BIT) #turning right
-                if left_total > left_total:
-                    self.encB(self.A_LITTLE_BIT)
+                elif left_total > left_total:
+                    self.encB(self.A_LITTLE_BIT) #turning left
                     self.encL(self.A_LITTLE_BIT)
 
 
 
     def front_clear (self):
         """checks the scan array to see if there is a path dead ahead"""
-        for ang in range (self.MIDPOINT-10, self.MIDPOINT +10):
+        for ang in range (self.MIDPOINT-30, self.MIDPOINT +30):
             if self.scan[ang] and self.scan[ang] < self.SAFE_STOP_DIST:
                 return False
 
@@ -346,7 +346,7 @@ class Piggy(pigo.Pigo):
         """ drive straight while path is clear"""
         self.fwd()
         while self.dist() > self.SAFE_STOP_DIST:
-            time.sleep(.01)
+            time.sleep(.01) #making it only sleep for a minimal amount of time
         self.stop()
 
 
