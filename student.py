@@ -259,7 +259,7 @@ class Piggy(pigo.Pigo):
         choice = raw_input("left/right or Turn Until Clear")
 
         if "l" in choice:
-            self.wide_scan(count=4)  # scan the area
+            self.wide_scan(count=6)  # scan the area
             # pick left or right
 
             # create two variables, left_total and right_total
