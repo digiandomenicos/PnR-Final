@@ -336,14 +336,16 @@ class Piggy(pigo.Pigo):
                 if self.scan[angle]:
                     left_total += self.scan[angle] #adding to the left value
             if right_total < 110 and left_total < 110:
+                print("\n\n I MUST BE UP AGAINST A BOX, RIGHT? (%d, %d) \n \n" % (left_total, right_total))
                 self.encB(self.A_LITTLE_BIT)
             elif right_total > left_total:
+                print("\n\n I'M GOING RIGHT (%d, %d) \n \n" % (left_total, right_total))
                 self.encB(self.A_LITTLE_BIT) #moving a set value
                 self.encR(self.A_LITTLE_BIT) #turning right
-            elif left_total > left_total:
+            else:
+                print("\n\n I'M GOING LEFT (%d, %d) \n \n" % (left_total, right_total))
                 self.encB(self.A_LITTLE_BIT) #turning left
                 self.encL(self.A_LITTLE_BIT)
-            return True
 
 
     def front_clear (self):
