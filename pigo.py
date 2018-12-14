@@ -187,7 +187,7 @@ class Pigo(object):
     def is_clear(self):
         """does a 3-point scan around the midpoint, returns false if a test fails"""
         print("Running the is_clear method.")
-        for x in range((self.MIDPOINT - 20), (self.MIDPOINT + 20), 5):
+        for x in range((self.MIDPOINT - 15), (self.MIDPOINT + 15), 5):
             self.servo(x)
             scan1 = self.dist()
             # double check the distance
