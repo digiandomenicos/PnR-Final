@@ -335,6 +335,7 @@ class Piggy(pigo.Pigo):
             for angle in range(self.MIDPOINT, self.MIDPOINT +60): #adding 60 to the midpoint
                 if self.scan[angle]:
                     left_total += self.scan[angle] #adding to the left value
+            raw_input(str(left_total)+ " "+str(right_total))
             if right_total > left_total:
                 self.encB(self.A_LITTLE_BIT) #moving a set value
                 self.encR(self.A_LITTLE_BIT) #turning right
