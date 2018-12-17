@@ -326,7 +326,7 @@ class Piggy(pigo.Pigo):
             self.cruise()
 
         else:
-            self.wide_scan(count=6)
+            self.wide_scan(count=10)
             left_total = 0
             right_total = 0
             for angle in range(self.MIDPOINT -60, self.MIDPOINT): #the MIDPOINT -60 to the mipoint
