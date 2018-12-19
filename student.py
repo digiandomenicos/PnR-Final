@@ -358,7 +358,7 @@ class Piggy(pigo.Pigo):
         """ drive straight while path is clear"""
         self.fwd()
         while self.dist() > self.SAFE_STOP_DIST:
-            time.sleep(.01) #making it only sleep for a minimal amount of time
+            time.sleep(.001) #making it only sleep for a minimal amount of time
         self.stop()
 
 
